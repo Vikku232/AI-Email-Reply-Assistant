@@ -1,5 +1,7 @@
-package com.email.writer.email.writer.app;
+package com.email.writer.email.writer.app.controller;
 
+import com.email.writer.email.writer.app.service.EmailGeneratorService;
+import com.email.writer.email.writer.app.DTOrequest.EmailRequest;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

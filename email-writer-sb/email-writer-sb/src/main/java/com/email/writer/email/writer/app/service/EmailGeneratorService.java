@@ -1,8 +1,8 @@
-package com.email.writer.email.writer.app;
+package com.email.writer.email.writer.app.service;
 
 import java.util.*;
 
-import com.email.writer.email.writer.app.EmailRequest;
+import com.email.writer.email.writer.app.DTOrequest.EmailRequest;
 import com.email.writer.email.writer.app.EmailHistory;
 import com.email.writer.email.writer.app.EmailHistoryRepository;
 import org.springframework.beans.factory.annotation.Value;

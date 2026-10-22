@@ -1,4 +1,4 @@
-package com.email.writer.email.writer.app;
+package com.email.writer.email.writer.app.DTOrequest;
 
 import lombok.Data;
 
