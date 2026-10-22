@@ -3,10 +3,10 @@ FROM eclipse-temurin:21-jdk-alpine AS build
 
 WORKDIR /app
 
-# Copy Maven wrapper and pom first (layer-cache friendly)
-COPY email-writer-sb/mvnw       ./mvnw
-COPY email-writer-sb/.mvn       ./.mvn
-COPY email-writer-sb/pom.xml    ./pom.xml
+# Build context = repo root, so paths must include full nesting
+COPY email-writer-sb/email-writer-sb/mvnw    ./mvnw
+COPY email-writer-sb/email-writer-sb/.mvn    ./.mvn
+COPY email-writer-sb/email-writer-sb/pom.xml ./pom.xml
 
 # Make mvnw executable
 RUN chmod +x mvnw
@@ -15,7 +15,7 @@ RUN chmod +x mvnw
 RUN ./mvnw dependency:go-offline -B
 
 # Copy source and build (skip tests for faster image builds)
-COPY email-writer-sb/src ./src
+COPY email-writer-sb/email-writer-sb/src ./src
 RUN ./mvnw package -DskipTests -B
 
 # -- Stage 2: Lightweight runtime image --------------------------------------
